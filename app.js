@@ -16,38 +16,42 @@ const blogPosts = [
 	{
 		title: "ciambellone",
 		content: "ciambellone fatto in casa",
-		img: "./images/ciambellone.jpeg",
+		img: "/images/ciambellone.jpeg",
 		tags: ["cucina", "dolce", "dessert"],
 	},
 	{
 		title: "cracker di barbabietola",
 		content: "cracker di barbabietola fatti in casa",
-		img: "./images/cracker_barbabietola.jpeg",
+		img: "/images/cracker_barbabietola.jpeg",
 		tags: ["cucina", "antipasto"],
 	},
 	{
 		title: "pane dolce fritto",
 		content: "pane dolce fritto fatto in casa",
-		img: "./images/pane_fritto_dolce.jpeg",
+		img: "/images/pane_fritto_dolce.jpeg",
 		tags: ["cucina", "panificazione", "dolce"],
 	},
 	{
 		title: "pasta alla barbabietola",
 		content: "pasta alla barbabietola fatta in casa",
-		img: "./images/pasta_barbabietola.jpeg",
+		img: "/images/pasta_barbabietola.jpeg",
 		tags: ["cucina", "pasta", "primo"],
 	},
 	{
 		title: "torta paesana",
 		content: "torta paesana fatta in casa",
-		img: "./images/torta_paesana.jpeg",
+		img: "/images/torta_paesana.jpeg",
 		tags: ["cucina", "dolce", "dessert"],
 	},
 ];
 
 //creo una rotta /bacheca che restituisce un oggetto json con la lista dei post e il conteggio partendo da un array
 app.get("/bacheca", (req, res) => {
-	res.json([blogPosts, "il numero di post è: " + blogPosts.length]);
+	const data = {
+		posts: blogPosts,
+		length: blogPosts.length,
+	};
+	res.json(data);
 });
 
 app.listen(port, () => {
